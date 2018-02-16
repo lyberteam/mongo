@@ -27,7 +27,7 @@ dpkg-reconfigure -f noninteractive tzdata
 
 set -m
 
-COMMAND="mongod --storageEngine $MONGODB_STORAGE_ENGINE --httpinterface --rest --master"
+COMMAND="mongod --storageEngine $MONGODB_STORAGE_ENGINE  --master"
 
 if [ "$AUTH" == "yes" ]; then
     COMMAND="$COMMAND --auth"
