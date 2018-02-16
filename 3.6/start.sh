@@ -1,8 +1,10 @@
 #!/bin/bash
-USER=${MONGODB_USER:-"admin"}
-DATABASE=${MONGODB_DATABASE:-"admin"}
-PASS=${MONGODB_PASS:-"admin"}
-AUTH=${MONGODB_AUTH:-"yes"}
+USER=${COMPOSE_MONGODB_NAME:-"admin"}
+DATABASE=${COMPOSE_MONGODB_DATABASE:-"admin"}
+PASS=${COMPOSE_MONGODB_PASS:-"admin"}
+AUTH=${COMPOSE_MONGODB_AUTH:-"yes"}
+ENGINE=${COMPOSE_MONGODB_STORAGE_ENGINE:-"wiredTiger"}
+TIMEZONE=${LYBERTEAM_TIME_ZONE:-"Europe/Kiev"}
 
 add_user() {
     echo "---> Set  user: ${USER} with password: ${PASS}"
@@ -21,13 +23,13 @@ fi
 }
 
 # Add default timezone
-echo "$LYBERTEAM_TIME_ZONE" > /etc/timezone
-echo "date.timezone=$LYBERTEAM_TIME_ZONE" > /etc/php/7.0/cli/conf.d/timezone.ini
+echo "$TIMEZONE" > /etc/timezone
+echo "date.timezone=$TIMEZONE" > /etc/php/7.0/cli/conf.d/timezone.ini
 dpkg-reconfigure -f noninteractive tzdata
 
 set -m
 
-COMMAND="mongod --storageEngine $MONGODB_STORAGE_ENGINE  --master"
+COMMAND="mongod --storageEngine $ENGINE  --master"
 
 if [ "$AUTH" == "yes" ]; then
     COMMAND="$COMMAND --auth"
