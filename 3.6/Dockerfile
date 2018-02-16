@@ -7,7 +7,7 @@ FROM debian:jessie
 
 MAINTAINER Lyberteam <lyberteamltd@gmail.com>
 LABEL Vendor="Lyberteam"
-LABEL Description="MongoDB v3.6"
+LABEL Description="MongoDB"
 LABEL Version="1.0.0"
 
 ENV LYBERTEAM_TIME_ZONE Europe/Kiev

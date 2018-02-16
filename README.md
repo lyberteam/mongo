@@ -1,12 +1,6 @@
-# MONGO
+## MONGO
 
- **image from official debian:jessie**
+ **image from debian:jessie**
 
-  Mongo version - 3.6
-
-  DateTime - Europe/Kiev
-
-## Getting Started
-
-
-### Prerequisites
+## Tags
+   v3.6 ([3.6/Dockerfile](https://github.com/lyberteam/mongo/tree/3.6))
