@@ -11,14 +11,14 @@ LABEL Description="MongoDB"
 LABEL Version="1.0.0"
 
 ENV LYBERTEAM_TIME_ZONE Europe/Kiev
-ENV AUTH yes
-ENV STORAGE_ENGINE wiredTiger
-ENV JOURNALING yes
+ENV MONGODB_AUTH yes
+ENV MONGODB_STORAGE_ENGINE wiredTiger
 
 # https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5 \
-    &&  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+    &&  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" \
+        | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 
 #RUN apt-get install -y mongodb-org
 RUN apt-get update -yqq \
