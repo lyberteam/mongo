@@ -1,6 +1,6 @@
 #!/bin/bash
-USER=${COMPOSE_MONGODB_NAME:-"admin"}
 DATABASE=${COMPOSE_MONGODB_DATABASE:-"admin"}
+USER=${COMPOSE_MONGODB_USER:-"admin"}
 PASS=${COMPOSE_MONGODB_PASS:-"admin"}
 AUTH=${COMPOSE_MONGODB_AUTH:-"yes"}
 ENGINE=${COMPOSE_MONGODB_STORAGE_ENGINE:-"wiredTiger"}
@@ -8,7 +8,7 @@ TIMEZONE=${LYBERTEAM_TIME_ZONE:-"Europe/Kiev"}
 
 add_user() {
     echo "---> Set  user: ${USER} with password: ${PASS}"
-    mongo admin --eval "db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'root',db:'admin'}]});"
+    mongo admin --eval "db.createUser({user: '$USER', pwd: '$PASS', roles:[{role:'root',db:'$DATABASE'}]});"
 
 if [ "$DATABASE" != "admin" ]; then
     echo "---> Set  user: ${USER} with password: ${PASS}"
