@@ -11,8 +11,11 @@ LABEL Description="MongoDB"
 LABEL Version="1.0.0"
 
 ENV LYBERTEAM_TIME_ZONE Europe/Kiev
-ENV MONGODB_AUTH yes
-ENV MONGODB_STORAGE_ENGINE wiredTiger
+ENV COMPOSE_MONGODB_STORAGE_ENGINE wiredTiger
+ENV COMPOSE_MONGODB_AUTH yes
+ENV COMPOSE_MONGODB_ADMIN_NAME admin
+ENV COMPOSE_MONGODB_ADMIN_PASS admin
+ENV COMPOSE_MONGODB_DATABASE admin
 
 # https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
