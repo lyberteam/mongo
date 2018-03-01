@@ -8,14 +8,16 @@ FROM debian:jessie
 MAINTAINER Lyberteam <lyberteamltd@gmail.com>
 LABEL Vendor="Lyberteam"
 LABEL Description="MongoDB"
-LABEL Version="1.0.0"
+LABEL Version="1.0.2"
 
 ENV LYBERTEAM_TIME_ZONE Europe/Kiev
 ENV COMPOSE_MONGODB_STORAGE_ENGINE wiredTiger
 ENV COMPOSE_MONGODB_AUTH yes
-ENV COMPOSE_MONGODB_ADMIN_NAME admin
-ENV COMPOSE_MONGODB_ADMIN_PASS admin
-ENV COMPOSE_MONGODB_DATABASE admin
+ENV COMPOSE_MONGODB_ADMIN_NAME ""
+ENV COMPOSE_MONGODB_ADMIN_PASS ""
+ENV COMPOSE_MONGODB_USER_NAME ""
+ENV COMPOSE_MONGODB_USER_PASS ""
+ENV COMPOSE_MONGODB_DATABASE ""
 
 # https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
@@ -43,6 +45,6 @@ RUN chmod +x /start.sh
 
 CMD ["/start.sh"]
 
-WORKDIR /var/www/lyberteam
+WORKDIR /data/db
 
 EXPOSE 27017
