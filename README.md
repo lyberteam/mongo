@@ -30,4 +30,4 @@
             volumes:
                 - ./mongo_files/db:/data/db
                 - ./mongo_files/configdb:/data/configdb
-            command: ["/start.sh"]
+            command: ["/run.sh"]

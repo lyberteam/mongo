@@ -3,7 +3,7 @@
 #     Debian - MongoDB v3.6    #
 #                              #
 ################################
-FROM testmongo:base
+FROM debian:jessie
 
 MAINTAINER Lyberteam <lyberteamltd@gmail.com>
 LABEL Vendor="Lyberteam"
